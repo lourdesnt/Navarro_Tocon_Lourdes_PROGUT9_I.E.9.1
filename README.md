@@ -15,7 +15,7 @@ tiene la siguiente información:
  - Dichos alumnos realizan dos tipos de controles a lo largo del curso académico:
   
    - Controles escritos: cada alumno realiza varios a lo largo del curso, y se
-    definen por el no de control, el no de preguntas de que consta y la fecha
+    definen por el nº de control, el nº de preguntas de que consta y la fecha
     de realización (la misma para todos los alumnos que realizan el mismo
     control). Evidentemente, es importante almacenar la nota de cada alumno
     por control.
