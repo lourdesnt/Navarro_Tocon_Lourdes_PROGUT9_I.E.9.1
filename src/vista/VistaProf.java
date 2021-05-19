@@ -461,8 +461,8 @@ public class VistaProf extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogInsertarControlLayout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(labelNuevoNumMatr)))
-                        .addGroup(dialogInsertarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogInsertarControlLayout.createSequentialGroup()
+                        .addGroup(dialogInsertarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogInsertarControlLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(dialogInsertarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNuevoNumMatr, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -476,18 +476,18 @@ public class VistaProf extends javax.swing.JFrame {
                                         .addComponent(labelNuevaNota)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtNuevaNota, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogInsertarControlLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, dialogInsertarControlLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addGroup(dialogInsertarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(labelNuevosDatos)
                                     .addComponent(labelNuevoPreg))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNuevoPreg, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
+                                .addGap(30, 30, 30)
                                 .addComponent(labelNuevaFecha)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jDateNuevaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         dialogInsertarControlLayout.setVerticalGroup(
             dialogInsertarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -579,31 +579,34 @@ public class VistaProf extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogModificarControlLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(labelModNumMatr)))
-                                .addGap(15, 15, 15)
                                 .addGroup(dialogModificarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(dialogModificarControlLayout.createSequentialGroup()
-                                        .addComponent(btnModAceptar)
-                                        .addGap(47, 47, 47)
-                                        .addComponent(btnModCancelar))
+                                        .addGap(15, 15, 15)
+                                        .addGroup(dialogModificarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(dialogModificarControlLayout.createSequentialGroup()
+                                                .addComponent(btnModAceptar)
+                                                .addGap(47, 47, 47)
+                                                .addComponent(btnModCancelar))
+                                            .addGroup(dialogModificarControlLayout.createSequentialGroup()
+                                                .addComponent(txtModNumMatr, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(74, 74, 74)
+                                                .addComponent(labelModNota)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtModNota, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(dialogModificarControlLayout.createSequentialGroup()
+                                        .addGap(4, 4, 4)
                                         .addComponent(labelModPreg)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtModPreg, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(dialogModificarControlLayout.createSequentialGroup()
-                                        .addComponent(txtModNumMatr, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(74, 74, 74)
-                                        .addComponent(labelModNota)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtModNota, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelModFecha)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateModFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtModPreg, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(labelModFecha)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jDateModFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(labelModificar)))
                     .addGroup(dialogModificarControlLayout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(labelModDatos)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         dialogModificarControlLayout.setVerticalGroup(
             dialogModificarControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,21 +746,18 @@ public class VistaProf extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(labelNuevaDificultad)
                                 .addGap(18, 18, 18)
-                                .addComponent(boxNuevaDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(boxNuevaDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(dialogInsertarRealizLayout.createSequentialGroup()
-                                .addGroup(dialogInsertarRealizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(dialogInsertarRealizLayout.createSequentialGroup()
-                                        .addGap(51, 51, 51)
-                                        .addComponent(labelNuevaNota1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNuevaNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(labelNuevaFechaReal))
-                                    .addGroup(dialogInsertarRealizLayout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addComponent(labelNuevosDatos1)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addGap(43, 43, 43)
+                                .addComponent(labelNuevosDatos1))
+                            .addGroup(dialogInsertarRealizLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(labelNuevaNota1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNuevaNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(labelNuevaFechaReal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jDateNuevaFechaReal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(labelAnadir1)
                     .addGroup(dialogInsertarRealizLayout.createSequentialGroup()
@@ -765,7 +765,7 @@ public class VistaProf extends javax.swing.JFrame {
                         .addComponent(btnNuevoAceptar1)
                         .addGap(69, 69, 69)
                         .addComponent(btnNuevoCancelar1)))
-                .addContainerGap())
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         dialogInsertarRealizLayout.setVerticalGroup(
             dialogInsertarRealizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -888,7 +888,7 @@ public class VistaProf extends javax.swing.JFrame {
                     .addGroup(dialogModificarRealizLayout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(labelModDatos1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         dialogModificarRealizLayout.setVerticalGroup(
             dialogModificarRealizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1049,7 +1049,7 @@ public class VistaProf extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDateNuevaFechaDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnNuevoCancelar2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         dialogInsertarDisenoLayout.setVerticalGroup(
             dialogInsertarDisenoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1165,7 +1165,7 @@ public class VistaProf extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDateModFechaDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnModCancelar2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         dialogModificarDisenoLayout.setVerticalGroup(
             dialogModificarDisenoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1326,18 +1326,18 @@ public class VistaProf extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         if(paneles.getSelectedIndex()==0){
-            dialogInsertarControl.setSize(800,400);
+            dialogInsertarControl.setSize(650,400);
             dialogInsertarControl.setModal(true);
             dialogInsertarControl.setVisible(true);
             mostrarControl();
         } else if(paneles.getSelectedIndex()==1){
             if(panelesPract.getSelectedIndex()==0){
-                dialogInsertarRealiz.setSize(600,600);
+                dialogInsertarRealiz.setSize(700,400);
                 dialogInsertarRealiz.setModal(true);
                 dialogInsertarRealiz.setVisible(true);
                 mostrarNotasPract();
             } else if(panelesPract.getSelectedIndex()==1){
-                dialogInsertarDiseno.setSize(600,600);
+                dialogInsertarDiseno.setSize(850,300);
                 dialogInsertarDiseno.setModal(true);
                 dialogInsertarDiseno.setVisible(true);
                 mostrarDisenoPract();
@@ -1387,7 +1387,7 @@ public class VistaProf extends javax.swing.JFrame {
                 jDateModFecha.setDate(fecha);
                 txtModNumMatr.setText(""+numMatr);
                 txtModNota.setText(""+nota);
-                dialogModificarControl.setSize(800,400);
+                dialogModificarControl.setSize(650,400);
                 dialogModificarControl.setModal(true);
                 dialogModificarControl.setVisible(true);
                 mostrarControl();
@@ -1417,7 +1417,7 @@ public class VistaProf extends javax.swing.JFrame {
                     jDateModFechaReal.setDate(fechaReal);
                     txtModNumMatr1.setText(""+numMatr);
                     txtModNota1.setText(""+nota);
-                    dialogModificarRealiz.setSize(800,400);
+                    dialogModificarRealiz.setSize(700,400);
                     dialogModificarRealiz.setModal(true);
                     dialogModificarRealiz.setVisible(true);
                     mostrarNotasPract();
@@ -1440,7 +1440,7 @@ public class VistaProf extends javax.swing.JFrame {
                     boxModDificultad1.setSelectedItem(dificultad.toString());
                     jDateModFechaDis.setDate(fechaDis);
                     txtModDNI.setText(dni);
-                    dialogModificarDiseno.setSize(800,400);
+                    dialogModificarDiseno.setSize(850,300);
                     dialogModificarDiseno.setModal(true);
                     dialogModificarDiseno.setVisible(true);
                     mostrarDisenoPract();
@@ -1461,7 +1461,7 @@ public class VistaProf extends javax.swing.JFrame {
             if(filsel==-1){
                 JOptionPane.showMessageDialog(null, "Debes seleccionar el registro a borrar");
             } else{
-                dialogBorrarControl.setSize(400,400);
+                dialogBorrarControl.setSize(500,200);
                 dialogBorrarControl.setModal(true);
                 dialogBorrarControl.setVisible(true);
             }
@@ -1471,7 +1471,7 @@ public class VistaProf extends javax.swing.JFrame {
                 if(filsel==-1){
                     JOptionPane.showMessageDialog(null, "Debes seleccionar el registro a borrar");
                 } else{
-                    dialogBorrarRealiz.setSize(400,400);
+                    dialogBorrarRealiz.setSize(500,200);
                     dialogBorrarRealiz.setModal(true);
                     dialogBorrarRealiz.setVisible(true);
                 }
@@ -1480,7 +1480,7 @@ public class VistaProf extends javax.swing.JFrame {
                 if(filsel==-1){
                     JOptionPane.showMessageDialog(null, "Debes seleccionar el registro a borrar");
                 } else{
-                    dialogBorrarDiseno.setSize(400,400);
+                    dialogBorrarDiseno.setSize(500,200);
                     dialogBorrarDiseno.setModal(true);
                     dialogBorrarDiseno.setVisible(true);
                 }

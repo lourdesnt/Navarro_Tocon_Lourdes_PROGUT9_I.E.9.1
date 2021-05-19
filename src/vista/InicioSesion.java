@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * Clase para la interfaz gráfica de Inicio de sesión
+ * Clase para la interfaz gráfica de inicio de sesión
  * @author Lourdes Navarro Tocón
  */
 public class InicioSesion extends javax.swing.JFrame {
