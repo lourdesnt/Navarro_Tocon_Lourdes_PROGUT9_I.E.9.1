@@ -60,6 +60,31 @@ public class DaoPracticas {
     }
     
     /**
+     * Método para encontrar una práctica por la clave primaria (código de práctica)
+     * @param codigo Código de práctica
+     * @return Práctica
+     * @throws SQLException 
+     */
+    public Practica findByPK(int codigo) throws SQLException {
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM practica WHERE codigo = ?");
+        ps.setInt(1, codigo);
+		
+        ResultSet rs = ps.executeQuery();
+
+	Practica result = null;
+
+	if (rs.next()) {
+            Dificultad dificultad = Dificultad.valueOf(rs.getString("dificultad"));
+            result = new Practica(rs.getInt("codigo"), rs.getString("titulo"), dificultad);
+	}
+
+	rs.close();
+	ps.close();
+
+	return result;
+    }
+    
+    /**
      * Método para listar todas las prácticas de la base de datos junto con las notas de los alumnos
      * @return Colección de todas las prácticas
      * @throws SQLException 
