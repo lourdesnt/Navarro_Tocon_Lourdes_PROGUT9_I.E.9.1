@@ -322,17 +322,9 @@ public class VistaAdmin extends javax.swing.JFrame {
 
         labelNuevoGrupo.setText("Grupo:");
 
-        try {
-            txtNuevoNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtNuevoNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-        try {
-            txtNuevoGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtNuevoGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         javax.swing.GroupLayout dialogInsertarAlumLayout = new javax.swing.GroupLayout(dialogInsertarAlum.getContentPane());
         dialogInsertarAlum.getContentPane().setLayout(dialogInsertarAlumLayout);
@@ -477,17 +469,9 @@ public class VistaAdmin extends javax.swing.JFrame {
         labelModGrupo.setText("Grupo:");
 
         txtModNMatr.setEditable(false);
-        try {
-            txtModNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtModNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-        try {
-            txtModGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtModGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         javax.swing.GroupLayout dialogModificarAlumLayout = new javax.swing.GroupLayout(dialogModificarAlum.getContentPane());
         dialogModificarAlum.getContentPane().setLayout(dialogModificarAlumLayout);
@@ -770,12 +754,12 @@ public class VistaAdmin extends javax.swing.JFrame {
             if(fsel==-1){
                 JOptionPane.showMessageDialog(null, "Debes seleccionar el alumno a modificar");
             } else{
-                m = (DefaultTableModel) table.getModel();
+                m = (DefaultTableModel) table1.getModel();
                 numMatricula = (int) m.getValueAt(fsel,0);
                 nombre1 = (String) m.getValueAt(fsel, 1);
                 grupo = (int) m.getValueAt(fsel, 2);
                 txtModNMatr.setText(""+numMatricula);
-                txtModNombre.setText(nombre1);
+                txtModNombre1.setText(nombre1);
                 txtModGrupo.setText(""+grupo);
                 dialogModificarAlum.setSize(400,300);
                 dialogModificarAlum.setModal(true);
