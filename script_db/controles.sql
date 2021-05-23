@@ -27,7 +27,7 @@ CREATE TABLE `alumno` (
   `nombre` varchar(100) NOT NULL,
   `grupo` int NOT NULL,
   PRIMARY KEY (`num_matricula`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `control_escrito` (
 
 LOCK TABLES `control_escrito` WRITE;
 /*!40000 ALTER TABLE `control_escrito` DISABLE KEYS */;
-INSERT INTO `control_escrito` VALUES (1,10,'2021-04-26'),(2,8,'2021-03-14'),(3,5,'2021-01-30'),(4,20,'2021-05-24'),(5,12,'2021-06-01');
+INSERT INTO `control_escrito` VALUES (1,10,'2021-04-26'),(2,8,'2021-03-14'),(3,5,'2021-01-30'),(4,20,'2021-05-24'),(5,12,'2021-06-01'),(6,15,'2021-01-22');
 /*!40000 ALTER TABLE `control_escrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +79,7 @@ CREATE TABLE `disena` (
   `fecha` date NOT NULL,
   PRIMARY KEY (`dni_prof`,`cod_pract`),
   KEY `disena_ibfk_2` (`cod_pract`),
-  CONSTRAINT `disena_ibfk_1` FOREIGN KEY (`dni_prof`) REFERENCES `profesor` (`dni`),
+  CONSTRAINT `disena_ibfk_1` FOREIGN KEY (`dni_prof`) REFERENCES `profesor` (`dni`) ON DELETE CASCADE,
   CONSTRAINT `disena_ibfk_2` FOREIGN KEY (`cod_pract`) REFERENCES `practica` (`codigo`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -142,6 +142,28 @@ LOCK TABLES `profesor` WRITE;
 INSERT INTO `profesor` VALUES ('21111111A','Manuel Fernandez'),('22222222B','Juan Madrid'),('23333333C','Teresa Montes'),('24444444D','Carolina Segovia'),('25555555E','David Oviedo');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`lnavtoc`@`localhost`*/ /*!50003 TRIGGER `dni_valido` BEFORE INSERT ON `profesor` FOR EACH ROW BEGIN
+	DECLARE error_formato_dni CONDITION FOR SQLSTATE '70003';
+	IF verificaDNI(NEW.dni) = FALSE THEN
+		SIGNAL error_formato_dni
+		SET MESSAGE_TEXT = 'El DNI introducido no es valido',
+		MYSQL_ERRNO = 7003;
+	END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `realiza_control`
@@ -156,7 +178,7 @@ CREATE TABLE `realiza_control` (
   `nota` float(4,2) NOT NULL,
   PRIMARY KEY (`matric_alumno`,`cod_control`),
   KEY `realiza_control_ibfk_2` (`cod_control`),
-  CONSTRAINT `realiza_control_ibfk_1` FOREIGN KEY (`matric_alumno`) REFERENCES `alumno` (`num_matricula`),
+  CONSTRAINT `realiza_control_ibfk_1` FOREIGN KEY (`matric_alumno`) REFERENCES `alumno` (`num_matricula`) ON DELETE CASCADE,
   CONSTRAINT `realiza_control_ibfk_2` FOREIGN KEY (`cod_control`) REFERENCES `control_escrito` (`codigo`) ON DELETE CASCADE,
   CONSTRAINT `realiza_control_chk_1` CHECK (((`nota` >= 0) and (`nota` <= 10)))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -186,7 +208,7 @@ CREATE TABLE `realiza_practica` (
   `nota` float(4,2) NOT NULL,
   PRIMARY KEY (`matric_alumno`,`cod_pract`),
   KEY `realiza_practica_ibfk_2` (`cod_pract`),
-  CONSTRAINT `realiza_practica_ibfk_1` FOREIGN KEY (`matric_alumno`) REFERENCES `alumno` (`num_matricula`),
+  CONSTRAINT `realiza_practica_ibfk_1` FOREIGN KEY (`matric_alumno`) REFERENCES `alumno` (`num_matricula`) ON DELETE CASCADE,
   CONSTRAINT `realiza_practica_ibfk_2` FOREIGN KEY (`cod_pract`) REFERENCES `practica` (`codigo`) ON DELETE CASCADE,
   CONSTRAINT `realiza_practica_chk_1` CHECK (((`nota` >= 0) and (`nota` <= 10)))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -201,6 +223,59 @@ LOCK TABLES `realiza_practica` WRITE;
 INSERT INTO `realiza_practica` VALUES (1,5,'2021-01-30',7.00),(2,5,'2021-01-31',5.50),(3,4,'2021-03-17',3.00),(4,4,'2021-03-16',4.50),(5,2,'2021-02-15',9.00),(6,1,'2021-04-16',10.00),(7,2,'2021-02-15',9.00),(8,3,'2021-06-07',8.00),(9,3,'2021-06-07',8.00),(10,1,'2021-04-15',6.00);
 /*!40000 ALTER TABLE `realiza_practica` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'controles'
+--
+
+--
+-- Dumping routines for database 'controles'
+--
+/*!50003 DROP FUNCTION IF EXISTS `verificaDNI` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`lnavtoc`@`localhost` FUNCTION `verificaDNI`( cadena VARCHAR (9)) RETURNS tinyint(1)
+    DETERMINISTIC
+BEGIN
+	DECLARE patron VARCHAR (40);
+	SET patron = "^[0-9]{8}[A-Z]{1}$";
+	IF cadena REGEXP patron THEN
+		RETURN TRUE;
+	ELSE
+		RETURN FALSE;
+	END IF;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `obtenerDatosAlumno` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`lnavtoc`@`localhost` PROCEDURE `obtenerDatosAlumno`(num_matric INT)
+BEGIN
+	SELECT * FROM alumno WHERE num_matricula = num_matric;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -211,4 +286,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-18 19:48:07
+-- Dump completed on 2021-05-23 18:55:47

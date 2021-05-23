@@ -130,7 +130,7 @@ public class DaoAlumnos {
      * @throws SQLException 
      */
     public void insert(Alumno a) throws SQLException {
-        PreparedStatement ps = con.prepareStatement("INSERT INTO alumno (num_matricula, nombre, grupo) VALUES (?, ?)");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO alumno (num_matricula, nombre, grupo) VALUES (?, ?, ?)");
         ps.setInt(1, a.getNumMatricula());
 	ps.setString(2, a.getNombre());
 	ps.setInt(3, a.getGrupo());

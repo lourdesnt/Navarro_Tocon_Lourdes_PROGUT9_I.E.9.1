@@ -972,11 +972,7 @@ public class VistaProf extends javax.swing.JFrame {
 
         labelNuevoCod2.setText("Número Práctica:");
 
-        try {
-            txtNuevoCod2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtNuevoCod2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         labelNuevoTitulo1.setText("Título:");
 
@@ -1087,11 +1083,7 @@ public class VistaProf extends javax.swing.JFrame {
         labelModCod2.setText("Número Práctica:");
 
         txtModCod2.setEditable(false);
-        try {
-            txtModCod2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtModCod2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         labelModTitulo1.setText("Título:");
 

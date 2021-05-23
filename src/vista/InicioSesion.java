@@ -47,6 +47,7 @@ public class InicioSesion extends javax.swing.JFrame {
     public InicioSesion() throws SQLException {
         this.daoAlum = DaoAlumnos.getInstance();
         this.daoProf = DaoProfesores.getInstance();
+        cargarConfiguracion();
         initComponents();
     }
 
@@ -162,7 +163,7 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Método para leer el fichero de configuración, que contiene el nombre de administrativo y la contraseña
      */
-    private static void cargarConfiguracion(){
+    private void cargarConfiguracion(){
         try {
             List<String> config = Files.readAllLines(configPath);
             adminName = config.get(0);
@@ -177,8 +178,6 @@ public class InicioSesion extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        cargarConfiguracion();
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

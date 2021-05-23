@@ -322,9 +322,9 @@ public class VistaAdmin extends javax.swing.JFrame {
 
         labelNuevoGrupo.setText("Grupo:");
 
-        txtNuevoNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtNuevoNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        txtNuevoGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtNuevoGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout dialogInsertarAlumLayout = new javax.swing.GroupLayout(dialogInsertarAlum.getContentPane());
         dialogInsertarAlum.getContentPane().setLayout(dialogInsertarAlumLayout);
@@ -469,9 +469,9 @@ public class VistaAdmin extends javax.swing.JFrame {
         labelModGrupo.setText("Grupo:");
 
         txtModNMatr.setEditable(false);
-        txtModNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtModNMatr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        txtModGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtModGrupo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout dialogModificarAlumLayout = new javax.swing.GroupLayout(dialogModificarAlum.getContentPane());
         dialogModificarAlum.getContentPane().setLayout(dialogModificarAlumLayout);
